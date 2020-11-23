@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "vianney",
+        "password": "password",
+        "database": "node_db",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "vianney",
+        "password": "password",
+        "database": "node_db",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "vianney",
+        "password": "password",
+        "database": "node_db",
+        "host": "127.0.0.1",
+        "dialect": "postgres"
+    }
+}
