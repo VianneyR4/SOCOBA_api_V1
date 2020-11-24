@@ -82,7 +82,7 @@ module.exports = {
             (newAdmin) => {
                 if (newAdmin) {
                     return res.status(201).json({
-                        'message': 'User added successfully',
+                        'msg': 'User added successfully',
                         'adminId': newAdmin.id
                     });
                 } else {
@@ -93,11 +93,7 @@ module.exports = {
             }
 
         ], (err) => {
-            if (!err) {
-                return res.status(200).json({ 'msg': 'User added successfully!' });
-            } else {
-                return res.status(400).json({ 'error': 'An arror has occured when added user...' });
-            }
+            return res.status(400).json({ 'error': 'An arror has occured when added user...' });
         });
 
     },
@@ -132,18 +128,19 @@ module.exports = {
                         done(null, resultBcrypt, adminFound);
                     });
                 } else {
-                    return res.status(404).json({ 'error': 'Email not found' })
+                    return res.status(404).json({ 'error': 'Email not found!' })
                 }
             },
             (resultBcrypt, adminFound) => {
                 if (resultBcrypt) {
                     return res.status(200).json({
+                        'msg': 'login successfully!',
                         'AdminId': adminFound.id,
                         'token': jwt.generateToken(adminFound),
                     })
                 } else {
                     return res.status(404).json({
-                        'error': 'Invalid password'
+                        'error': 'Invalid password!'
                     })
                 }
             }
@@ -177,7 +174,7 @@ module.exports = {
                         if (adminData) {
                             done(null, adminData);
                         } else {
-                            return res.status(400).json({ 'msg': 'User not found!' });
+                            return res.status(400).json({ 'error': 'User not found!' });
                         }
                     })
                     .catch((err) => {
